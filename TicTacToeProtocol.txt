@@ -1,0 +1,29 @@
+TicTacToe Protocol:
+
+Board is disabled.
+Client connect to server.
+User enters name.
+If name is allowed, Client receives "+OK,NAME..." message from server.
+	- Hides login controls
+	- Shows board
+Client sends message "LIST,GROUPS" to server.
+Client receives Group List from server. If no groups, a random group of capapcity 2
+is created named "@group_####".
+If groups exist, groups are checked to see if at maximum capcity. If not, it is joined.
+If all groups are full, random group of capcity 2 is created.
+If the Client is the first in the group they are labeled Player1 (Player1 is set true).
+Player1 will always go second.
+Player2 will always go first.
+If the Client is Player2 the board is enabled.
+When a button is clicked, the Client sends a message to the group the Client with the
+X and Y location of the clicked button ("XY").
+A X is placed on the button pressed to represent the client's move.
+The board is disebaled after a button is clicked.
+If the board is full after the button is pressed, the server sends "BYE" and the app
+is disconnected.
+When the Client receives a message from the server, the message is parsed to the X and Y
+coordinates of the button clicked.
+The Client board is marked with an O to represent the opponents move.
+The board is enabled after the opponents move is marked.
+If the board is full after marking the opponent's move, "BYE" is sent to the server and the 
+app is disconnected.
